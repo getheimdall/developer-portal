@@ -1,0 +1,32 @@
+@import './../../static/scss/settings/variables.scss';
+
+.faq__card {
+
+    position: relative;
+
+    .faq__card-title {
+        &:hover {
+            cursor: pointer;
+            color: $color-accent;
+        }
+    }
+
+    .faq__card-description {
+        transition: opacity 0.6s ease-out 0s, height 0.6s ease-out 0s, margin-top 0.6s ease-out 0s;
+        height: 0;
+        visibility: hidden;
+
+        &.active {
+            height: auto;
+            visibility: visible;
+            transition: height 0.3s ease-out 0s, margin-top 0.3s ease-out 0s, opacity 0.6s ease-out 0.2s;
+        }
+    }
+
+    .faq__card-icon {
+        position: absolute;
+        right: 10px;
+        
+        font-size: 20px;
+    }
+}

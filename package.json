@@ -1,0 +1,36 @@
+{
+  "name": "developer-portal-nextjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pages/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build:hmlg": "dotenv -e .env next build",
+    "build": "dotenv -e .env.production next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": {
+    "email": "manoel.filho@conductor.com.br",
+    "name": "Manoel Dijalma",
+    "url": "https://dijalmasilva.github.io"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "next": "^7.0.2",
+    "next-nprogress": "^1.4.0",
+    "node-sass": "^4.11.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-toastify": "^4.5.2",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0"
+  }
+}

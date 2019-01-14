@@ -1,0 +1,74 @@
+$font-family-main: 'Nunito', sans-serif;
+
+// Set your color palette in the $theme variable
+
+// red - default
+// heimdall
+
+$theme: heimdall;
+
+//red
+$color-accent: #ff5c72;
+$color-accent-hover: #f23f57;
+$color-accent-active: #f0354e;
+
+$color-button-accent: #ff5c72;
+$color-button-accent-hover: #f23f57;
+$color-button-accent-active: #f0354e;
+
+$color-accent-1: #7fb5ff;
+$color-accent-2: #a485f2;
+$color-accent-3: #38e0c4;
+
+$color-event: linear-gradient(to top, #ff5c72, #a485f2);
+
+@if $theme == heimdall {
+  $color-accent: #ffce00;
+  $color-accent-hover: #dfb40a;
+  $color-accent-active: #ff9700;
+
+  $color-button-accent: #08173f;
+  $color-button-accent-hover: #0b2469;
+  $color-button-accent-active: #051749;
+
+  $color-accent-1: #08173f;
+  $color-accent-2: #ffce00;
+  $color-accent-3: #17327c;
+
+  $color-event: linear-gradient(to top, #08173f, #ffce00);
+}
+
+$color-dark-blue: #234c87;
+$color-dark-blue-hover: #143e7a;
+$color-dark-blue-active: #0e3a78;
+
+$color-text-title: #4c6280;
+$color-text-main: #7d93b2;
+
+$color-gray-1: #9eb4d2;
+$color-gray-2: #bed0e9;
+$color-gray-3: #ceddf2;
+$color-gray-4: #e5f0ff;
+
+$color-background-main: #fafcff;
+
+$font-size-h1: 48px;
+$line-height-h1: 72px;
+
+$font-size-h2: 36px;
+$line-height-h2: 54px;
+
+$font-size-h3: 24px;
+$line-height-h3: 36px;
+
+$font-size-t1: 18px;
+$line-height-t1: 36px;
+
+$font-size-t2: 16px;
+$line-height-t2: 32px;
+
+$font-size-btn: 16px;
+$line-height-btn: 20px;
+
+
+
