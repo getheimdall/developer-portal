@@ -1,0 +1,18 @@
+version: '3'
+services:
+  developer-portal:
+    build: .
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      # - REACT_APP_SCHEME=${REACT_APP_SCHEME}
+      # - REACT_APP_ADDRESS=${REACT_APP_ADDRESS}
+      # - REACT_APP_PORT=${REACT_APP_PORT}
+      # - REACT_APP_API=${REACT_APP_API}
+      # - REACT_PORTAL_USERNAME=${REACT_PORTAL_USERNAME}
+      # - REACT_PORTAL_PASSWORD=${REACT_PORTAL_PASSWORD}
+      # - REACT_TIME_AUTH_PORTAL=${REACT_TIME_AUTH_PORTAL}
+    ports:
+      - "3000:3000"
