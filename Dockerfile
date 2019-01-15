@@ -7,6 +7,6 @@ EXPOSE 3000
 WORKDIR /opt/app
 COPY . /opt/app
 
-RUN npm install && npm rebuild node-sass && npm run build
+RUN npm install && npm rebuild node-sass && npm run build:dotenv
 
 CMD [ "npm", "start" ]
