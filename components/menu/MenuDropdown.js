@@ -1,10 +1,19 @@
 import Link from 'next/link'
 
-const MenuDropDown = ({ nameParent, childrenElements, pathname }) => (
+const MenuDropDown = ({ nameParent, childrenElements, pathname, imgParent }) => (
     <div className="menu__dropdown">
-        <a className="link link--gray menu__dropdown-btn">{nameParent}
-            <span><i className="mdi mdi-chevron-down"/></span>
-        </a>
+        { 
+            imgParent && 
+            <a className="link link--gray menu__dropdown-btn">
+                <img alt={nameParent} src={imgParent} style={{verticalAlign: 'middle'}}/>
+            </a>
+        }
+        {
+            !imgParent &&
+            <a className="link link--gray menu__dropdown-btn">{nameParent}
+                <span><i className="mdi mdi-chevron-down"/></span>
+            </a>
+        }
         <div className="menu__dropdown-content menu__dropdown-content--home">
             {childrenElements.map((element, index) => {
                 return <Link key={index} href={element.link}>
@@ -16,13 +25,13 @@ const MenuDropDown = ({ nameParent, childrenElements, pathname }) => (
 )
 
 MenuDropDown.defaultProps = {
-    nameParent: 'Sobre',
+    nameParent: 'About',
     childrenElements: [
-        { name: 'Plataforma', link: '/plataforma' },
-        { name: 'Como funciona', link: '/como-funciona' },
-        { name: 'Histórico de atualizações', link: '/historico-api' }
+        { name: 'Platform', link: '/platform' },
+        { name: 'How do', link: '/how-do' },
+        { name: 'Updates history', link: '/updates-api' }
     ],
-    pathname: '/como-funciona'
+    pathname: 'http://localhost:3000/platform'
 }
 
 export default MenuDropDown

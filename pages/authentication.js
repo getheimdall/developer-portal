@@ -1,27 +1,35 @@
 import Page from './../components/page'
 import SectionPage from './../components/section/SectionPage'
+import Row from '../components/row'
+import Col from '../components/col'
 
 const Authentication = () => (
     <Page>
         <SectionPage className="section--last section--top-space" title="Roles of Authentication">
-            <div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-                <p>
-                    Lorem ipsum dolor amet mustache knausgaard +1, blue bottle waistcoat tbh semiotics artisan synth stumptown gastropub 
-                    cornhole celiac swag. Brunch raclette vexillologist post-ironic glossier ennui XOXO mlkshk godard pour-over blog tumblr 
-                    humblebrag. Blue bottle put a bird on it twee prism biodiesel brooklyn. Blue bottle ennui tbh succulents.
-                </p>
-                <h4>Lorem ipsum</h4>
-                <p>
-                    Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. 
-                    Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis 
-                    soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
-                </p>
-            </div>
+            <Row>
+                <Col g={2} m={2} t={2} l={2}>
+                    <img src="/static/img/img_feature_3.png" alt="" width="100" height="auto"/>
+                </Col>
+                <Col g={10} m={10} t={10} l={10}>
+                    <p>
+                        The authentication process of requests for the Heimdall of APIs is performed from the Access Token sending along with the ClientID 
+                        in the header of the requests. The generation of this information occurs when the developer creates the application in the 
+                        'Developer -> Create App' menu and they automatically generated this credentials. To view the created token just refer to the 
+                        "Developer -> My Applications" section.
+                    </p>
+                </Col>
+                <Col><hr/><br/></Col>
+                <Col g={2} m={2} t={2} l={2}>
+                    <img src="/static/img/img_feature_11.png" alt="" width="100" height="auto"/>
+                </Col>
+                <Col g={10} m={10} t={10} l={10}>
+                    <h5>Transport Protocol</h5>
+                    <p>
+                        All information passed through our APIs is performed through the HTTPS protocol, which guarantees a secure channel and exempts the encryption
+                        of the tokens or the contents of the request.
+                    </p>
+                </Col>
+            </Row>
         </SectionPage>
     </Page>
 )

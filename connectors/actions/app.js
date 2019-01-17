@@ -9,11 +9,11 @@ export const saveApp = app => dispatch => {
   appService.save(app)
     .then(data => {
       dispatch({ type: AppConstants.SAVE, app: data })
-      toast.success('App cadastrado com sucesso!')
+      toast.success('App saved with success!')
       Router.push('/apps')
     })
     .catch(error => {
-      toast.error('Erro ao cadastrar app!')
+      toast.error('Error to save app!')
       throw error
     })
 }

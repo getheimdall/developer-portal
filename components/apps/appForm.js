@@ -62,12 +62,12 @@ class AppForm extends React.Component {
             <Form title="App">
                 <FormGroup>
                     <label className="form__label">Name</label>
-                    <input className="form__input js-field__email" type="text" placeholder="App Name" value={name} onChange={this.handleOnChangeName} autoFocus/>
+                    <input className="form__input js-field__name" type="text" placeholder="App Name" value={name} onChange={this.handleOnChangeName} autoFocus/>
                     <span className="form-validation" />
                 </FormGroup>
                 <FormGroup>
                     <label className="form__label">Description</label>
-                    <input className="form__input js-field__password" type="text" placeholder="App description" value={description} onChange={this.handleOnChangeDescription} />
+                    <input className="form__input js-field__description" type="text" placeholder="App description" value={description} onChange={this.handleOnChangeDescription} />
                     <span className="form-validation" />
                 </FormGroup>
                 <AppSecurity clientId={this.props.app.clientId} listAccessToken={this.props.app.accessTokens} />

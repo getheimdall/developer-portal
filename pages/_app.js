@@ -42,7 +42,7 @@ class MyApp extends App {
           spinner/>
           <ToastContainer autoClose={2500}/>
         <Head>
-          <link rel="shortcut icon" type="image/svg" href="/static/favicon.png"/>
+          <link rel="shortcut icon" type="image/png" href="/static/favicon.png" sizes="32x32"/>
           <title>{infoSite.info.titleSite}</title>
         </Head>
         <Provider store={reduxStore}>

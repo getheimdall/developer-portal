@@ -17,7 +17,7 @@ class MenuMobile extends React.Component {
     
     render() {
 
-        const { linksMenu } = infoSite
+        const { linksMenu, functionsDev} = infoSite
 
         return (
             <div className="mobile-menu d-none d-t-block">
@@ -54,10 +54,13 @@ class MenuMobile extends React.Component {
                                 <li key={0} className="mobile-menu__li"><ButtonAccent value="Sign In" onClick={() => Router.push('/login')}/></li>,
                                 <li key={1} className="mobile-menu__li"><ButtonInvert value="Sign Up" onClick={() => Router.push('/register')}/></li>
                         ]}
-                        
+                        {
+                            isLoggedIn() && <MenuCollapse childrenElements={functionsDev} pathname={this.props.router.pathname} />
+                        }
                         {
                             isLoggedIn() && <li className="mobile-menu__li"><ButtonInvert value="Logout" onClick={this.Logout}/></li>
                         }
+                        
                     </ul>
                     </nav>
                 </div>

@@ -55,8 +55,9 @@ class Apps extends React.Component {
                                 </Col>
                             )
                         })}
-                        { apps && apps.content.length === 0  && <h4>Nenhum app criado! <ButtonAccent onClick={() => Router.push('/newApp')} value="Criar App"/></h4>}
+                        { apps && apps.content.length === 0  && <h4>You dont have apps! <ButtonAccent onClick={() => Router.push('/newApp')} value="Create App"/></h4>}
                     </Row>
+                    <br/><br/>
                 </SectionPage>
             </Page>
         )

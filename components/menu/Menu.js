@@ -19,7 +19,7 @@ class Menu extends React.Component {
 
     render() {
 
-        const { info, linksMenu }  = infoSite
+        const { info, linksMenu, functionsDev}  = infoSite
 
         return (
             <div className="menu">
@@ -62,6 +62,9 @@ class Menu extends React.Component {
                                     
                                     {
                                         isLoggedIn() && <li><ButtonInvert value="Logout" onClick={this.Logout}/></li>
+                                    }
+                                    { 
+                                        isLoggedIn() && <li> <MenuDropDown nameParent="Developer" childrenElements={functionsDev} imgParent="/static/img/code.png"/> </li>
                                     }
                                 </ul>
                                 </nav>

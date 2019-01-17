@@ -12,25 +12,22 @@ const linksMenu = [
         { name: 'Updates history', link: '/updates-api' }
     ], authentication: false },
     { name: 'Documentation', subLinks: [
-        { name: 'Sandbox and Production', link: '/sandbox-production' },
-        { name: 'Modeling Patterns', link: '/modeling'},
+        { name: 'Get started', link: '/get-started'},
         { name: 'Roles of Authentication', link: '/authentication'},
-        { name: 'Get started', link: '/get-started'}
     ], authentication: false },
     { name: 'Tools', subLinks: [
         { name: 'Api Browser', link: '/api-browser' },
-        { name: 'Libraries SDKs', link: '/libs-sdk' }
     ], authentication: false },
-    { name: 'Developer', subLinks: [
-        { name: 'Create app', link: '/newApp'},
-        { name: 'My applications', link: '/apps' },
-        { name: 'Dashboard Dev', link: '/dashboard' }
-    ], authentication: true },
     { name: 'Contact', link: '/contact', authentication: false }
 ]
 
+const functionsDev = [
+    { name: 'Create app', link: '/newApp'},
+    { name: 'My applications', link: '/apps' },
+]
 
 export default {
     info,
-    linksMenu
+    linksMenu,
+    functionsDev
 }

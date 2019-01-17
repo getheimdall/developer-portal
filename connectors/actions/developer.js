@@ -8,11 +8,11 @@ export const saveDeveloper = developer => dispatch => {
   developerService.save(developer)
     .then(data => {
       dispatch({ type: DeveloperConstants.SAVE, developer: data })
-      toast.success('Desenvolvedor cadastrado com sucesso!')
+      toast.success('Developer saved with success!')
       Router.push('/login')
     })
     .catch(error => {
-      toast.error('Error ao cadastrar desenvolvedor!')
+      toast.error('Error to saved developer!')
       throw error
     })
 }

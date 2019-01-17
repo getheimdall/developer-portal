@@ -16,11 +16,11 @@ const MenuCollapse = ({ childrenElements, pathname }) => (
 
 MenuCollapse.defaultProps = {
     childrenElements: [
-        { name: 'Plataforma', link: '/plataforma' },
-        { name: 'Como funciona', link: '/como-funciona' },
-        { name: 'Histórico de atualizações', link: '/historico-api' }
+        { name: 'Platform', link: '/platform' },
+        { name: 'How do', link: '/how-do' },
+        { name: 'Updates history', link: '/updates-api' }
     ],
-    pathname: 'http://localhost:3000/como-funciona'
+    pathname: 'http://localhost:3000/platform'
 }
 
 export default MenuCollapse

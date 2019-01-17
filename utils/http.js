@@ -44,7 +44,7 @@ HTTPv1.interceptors.response.use(res => {
   return res
 }, error => {
   const response = error.response
-  if (response.status === 401 || response.status === 403 || response.data.message === 'Token expired') {
+  if (response && (response.status === 401 || response.status === 403 || response.data.message === 'Token expired')) {
     localStorage.clear()
     getAuthentication().then(token => {
       error.config.headers.Authorization = `Bearer ${token}`
