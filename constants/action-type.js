@@ -14,3 +14,10 @@ export const AppConstants = {
   CLEAR_APP: 'CLEAR_APP',
   UPDATE: 'UPDATE'
 }
+
+export const ApiConstants = {
+  RECEIVE_API: 'RECEIVE_API',
+  RECEIVE_APIS: 'RECEIVE_APIS',
+  CLEAR_API: 'CLEAR_API',
+  CLEAR_APIS: 'CLEAR_APIS'
+}

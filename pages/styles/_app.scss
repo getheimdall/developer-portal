@@ -8,3 +8,22 @@ hr {
     margin-top: 50px !important;
     margin-bottom: 50px !important;
 }
+
+.notification-container {
+    
+    &.Toastify__toast--success {
+        background: $color-success;
+    }
+
+    &.Toastify__toast--error {
+        background: $color-error;
+    }
+
+    &.Toastify__toast--warning {
+        background: $color-warn;
+    }
+
+    &.Toastify__toast--info {
+        background: $color-info;
+    }
+}

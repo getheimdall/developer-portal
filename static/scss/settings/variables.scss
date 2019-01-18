@@ -20,6 +20,11 @@ $color-accent-1: #7fb5ff;
 $color-accent-2: #a485f2;
 $color-accent-3: #38e0c4;
 
+$color-success: #10a774;
+$color-error: #af3719;
+$color-warn: #aa5916;
+$color-info: #123492;
+
 $color-event: linear-gradient(to top, #ff5c72, #a485f2);
 
 @if $theme == heimdall {
@@ -34,6 +39,11 @@ $color-event: linear-gradient(to top, #ff5c72, #a485f2);
   $color-accent-1: #08173f;
   $color-accent-2: #ffce00;
   $color-accent-3: #17327c;
+
+  $color-success: #10a774;
+  $color-error: #ca5a3e;
+  $color-warn: #ee8c3b;
+  $color-info: #051749;
 
   $color-event: linear-gradient(to top, #08173f, #ffce00);
 }

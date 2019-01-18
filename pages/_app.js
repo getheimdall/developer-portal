@@ -40,7 +40,7 @@ class MyApp extends App {
           options={{ trickleSpeed: 20 }}
           showAfterMs={500}
           spinner/>
-          <ToastContainer autoClose={2500}/>
+          <ToastContainer autoClose={2500} toastClassName="notification-container"/>
         <Head>
           <link rel="shortcut icon" type="image/png" href="/static/favicon.png" sizes="32x32"/>
           <title>{infoSite.info.titleSite}</title>
