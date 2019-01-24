@@ -1,5 +1,13 @@
 @import './../../static/scss/main.scss';
 
+a:visited {
+    color: $color-text-main;
+
+    &:hover {
+        color: $color-accent;
+    }
+}
+
 textArea {
     resize: none;
 }

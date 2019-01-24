@@ -28,6 +28,23 @@ const getAuthentication = () => {
     })
 }
 
+const existApiAndPlanDefault = () => {
+  const apiId = process.env.REACT_PORTAL_API_ID
+  const planDefaultId = process.env.REACT_PORTAL_PLAN_DEFAULT_ID
+
+  return HTTPv1.get(`/apis/${apiId}`)
+    .then(res => {
+      return HTTPv1.get(`/plans/${planDefaultId}`)
+        .then(res => { 
+          return Promise.resolve(res)
+        })
+        .catch(error => {
+          throw error
+        })
+    })
+    .catch(error => Promise.reject(error))
+}
+
 const existToken = () => !!localStorage.getItem('token')
 
 HTTPv1.interceptors.request.use(req => {
@@ -58,6 +75,7 @@ HTTPv1.interceptors.response.use(res => {
 const auth = {
   getAuthentication,
   existToken,
+  existApiAndPlanDefault
 }
 
 export { HTTP, HTTPv1, auth }

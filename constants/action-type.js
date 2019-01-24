@@ -17,7 +17,7 @@ export const AppConstants = {
 
 export const ApiConstants = {
   RECEIVE_API: 'RECEIVE_API',
-  RECEIVE_APIS: 'RECEIVE_APIS',
+  RECEIVE_SWAGGER: 'RECEIVE_SWAGGER',
   CLEAR_API: 'CLEAR_API',
-  CLEAR_APIS: 'CLEAR_APIS'
+  CLEAR_SWAGGER: 'CLEAR_SWAGGER'
 }

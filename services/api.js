@@ -1,7 +1,7 @@
 import { HTTPv1 } from "../utils/http"
 
-const getApis = (params = {params: {}}) => {
-    return HTTPv1.get('/apis', params)
+const getApiSwagger = (id) => {
+    return HTTPv1.get(`/apis/${id}/swagger`)
         .then(res => {
             return Promise.resolve(res.data)
         })
@@ -35,6 +35,6 @@ const getApiById = (id) => {
 }
 
 export const apiService = {
-    getApis,
+    getApiSwagger,
     getApiById
 }
