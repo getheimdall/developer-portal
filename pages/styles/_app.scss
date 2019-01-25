@@ -1,10 +1,22 @@
 @import './../../static/scss/main.scss';
+@import './api-swagger.scss';
+@import './apps.scss';
+@import './how-do.scss';
+@import './index.scss';
+@import './modeling.scss';
+@import './updates-api.scss';
 
-a:visited {
+a {
     color: $color-text-main;
-
     &:hover {
         color: $color-accent;
+    }
+
+    &:visited {
+        color: $color-text-main;
+        &:hover {
+            color: $color-accent;
+        }
     }
 }
 

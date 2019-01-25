@@ -11,7 +11,7 @@ const save = app => {
       id: getCurrentUser().id,
     },
     status: 'ACTIVE',
-    plans: [],
+    plans: [ {id: process.env.REACT_PORTAL_PLAN_DEFAULT_ID} ],
     tags: [],
   }
   return HTTPv1.post('/apps', JSON.stringify(appToSave))

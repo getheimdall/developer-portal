@@ -70,7 +70,7 @@ class ApiBrowser extends React.Component {
                                             </Col>
                                         </Row>
                                         <br/>
-                                        <ButtonAccent value="See swagger" onClick={() => Router.push({ pathname: '/api-swagger'})} disable={this.props.swaggerNotValid}/>
+                                        <ButtonAccent value="Open Swagger" onClick={() => Router.push({ pathname: '/api-swagger'})} disable={this.props.swaggerNotValid}/>
                                     </div>
                                 </Card>
                             </Col>

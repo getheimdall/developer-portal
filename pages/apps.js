@@ -11,7 +11,7 @@ import ButtonInvert from './../components/button/ButtonInvert'
 import AuthorizationRoute from './../components/hoc/AuthorizationRoute'
 import { getAllApps, deleteApp } from '../connectors/actions/app'
 
-import './styles/apps.scss'
+// import './styles/apps.scss'
 
 class Apps extends React.Component {
 

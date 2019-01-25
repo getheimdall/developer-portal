@@ -1,0 +1,19 @@
+@import './../../static/scss/settings/variables.scss';
+
+ul {
+    li {
+        a {
+            color:$color-accent-1;
+            &:hover {
+                color: $color-accent-2;
+            }
+
+            &:visited {
+                color:$color-accent-1;
+                &:hover {
+                    color: $color-accent-2;
+                }
+            }
+        }
+    }
+}

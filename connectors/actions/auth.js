@@ -15,7 +15,7 @@ export const login = ({ email, password }) => dispatch => {
           name: data.name,
         })
         dispatch({ type: AuthConstants.LOGIN })
-        toast.warn(`Welcome, ${data.name}!`)
+        toast.success(`Welcome, ${data.name}!`)
         Router.push('/apps')
       })
       .catch(error => {

@@ -5,7 +5,7 @@ import Col from '../components/col'
 import Card from '../components/card'
 import infoSite from './../constants/infoSite'
 
-import './styles/modelagem.scss'
+// import './styles/modelagem.scss'
 
 const ModelingApi = () => (
     <Page>

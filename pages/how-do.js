@@ -4,7 +4,7 @@ import Row from '../components/row'
 import Col from '../components/col'
 import infoSite from '../constants/infoSite'
 
-import './styles/como-funciona.scss'
+// import './styles/como-funciona.scss'
 
 const HowDo = () => (
     <Page>

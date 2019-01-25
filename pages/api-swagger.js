@@ -8,10 +8,10 @@ import { getApi } from './../connectors/actions/api'
 import Form from './../components/form/Form'
 import FormGroup from './../components/form/FormGroup'
 import Card from './../components/card/Card'
+import Col from './../components/col/Col'
 
-import 'swagger-ui/dist/swagger-ui.css'
-import './styles/api-swagger.scss'
-import Col from './../components/col/Col';
+// import 'swagger-ui/dist/swagger-ui.css'
+// import './styles/api-swagger.scss'
 
 class ApiSwagger extends React.Component {
 

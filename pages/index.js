@@ -31,7 +31,7 @@ class Index extends React.Component {
                     image="/static/img/img_bg_webapp.png">
                     <div className="header-home__btns header-home__btns-webapp">
                         <ButtonAccent value="How do" onClick={this.handleClickHowDo}/>
-                        { !isLoggedIn() && <ButtonInvert value="Sign Up?" onClick={this.handleClickRegister}/> }
+                        { !isLoggedIn() && <ButtonInvert value="Sign Up" onClick={this.handleClickRegister}/> }
                     </div>
                 </Header>
                 <br/><br/>
