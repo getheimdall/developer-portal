@@ -1,3 +1,13 @@
+.invisible  {
+    display: none;
+}
+
+.form__card {
+    &.card {
+        margin-bottom: 10px
+    }
+}
+
 #swaggerUI {
     .scheme-container {
         margin-left: 70px !important;
@@ -5,6 +15,7 @@
     }
 
     .info {
+        text-align: center;
         .main {
             small {
                 height: 25px;
