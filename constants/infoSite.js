@@ -1,6 +1,6 @@
 const info = {
     titleSite: 'Heimdall.dev',
-    titleDescription: 'Featured as Portal Developer Presentation in NextJs',
+    titleDescription: 'Developer Portal of the Heimdall',
     owner: 'Conductor Tecnologia',
     linkOwner: 'http://www.conductor.com.br/'
 }
