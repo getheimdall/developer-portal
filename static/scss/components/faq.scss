@@ -14,7 +14,6 @@
 
   .faq__card {
     padding: 34px;
-    transition: all 0.3s;
     cursor: pointer;
     position: relative;
     margin-bottom: 32px;
@@ -29,7 +28,6 @@
         margin-top: 30px;
         visibility: visible;
         opacity: 1;
-        transition: height 0.3s ease-out 0s, margin-top 0.3s ease-out 0s, opacity 0.6s ease-out 0.2s;
       }
     }
 
@@ -57,7 +55,6 @@
   .faq__card-description {
     visibility: hidden;
     height: 0;
-    transition: opacity 0.6s ease-out 0s, height 0.6s ease-out 0s, margin-top 0.6s ease-out 0s;
     margin: 0;
     opacity: 0;
 

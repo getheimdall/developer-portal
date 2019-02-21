@@ -11,15 +11,14 @@
         }
     }
 
-    .faq__card-description {
-        transition: opacity 0.6s ease-out 0s, height 0.6s ease-out 0s, margin-top 0.6s ease-out 0s;
+    .faq__description {
         height: 0;
-        visibility: hidden;
+        margin: 0;
+        opacity: 0;
 
         &.active {
             height: auto;
-            visibility: visible;
-            transition: height 0.3s ease-out 0s, margin-top 0.3s ease-out 0s, opacity 0.6s ease-out 0.2s;
+            opacity: 1;
         }
     }
 
