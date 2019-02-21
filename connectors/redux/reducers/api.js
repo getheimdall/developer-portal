@@ -6,12 +6,10 @@ export default (state = stateDefault, action) => {
   switch (action.type) {
     case ApiConstants.RECEIVE_API:
         return { ...state, api: action.api }
-    case ApiConstants.RECEIVE_SWAGGER:
-        return { ...state, swagger: action.swagger }
     case ApiConstants.CLEAR_API: 
         return { ...state, api: null }
-    case ApiConstants.CLEAR_SWAGGER:
-        return { ...state, swagger: null }
+    case ApiConstants.GET_DESCRIPTION_RESOURCES:
+        return { ...state, descriptions: action.descriptions }
     default:
       return state
   }

@@ -11,6 +11,15 @@ module.exports = withCss(withSass({
         config.plugins.push(new webpack.EnvironmentPlugin(process.env))
         // config = commonsChunkConfig(config, /\.(sass|scss|css)$/)
 
+        config.module.rules = config.module.rules || []
+
+        config.module.rules.push(
+            {
+                test: /\.md$/i,
+                use: 'raw-loader',
+            },
+        )
+
         return config
     }
 }))

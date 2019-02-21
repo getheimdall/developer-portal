@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "dotenv -e .env next",
+    "build:content": "processmd content/**/*.md --outputDir static/content/ --summaryOutput static/content/summary.json",
+    "build:content:watch": "processmd content/**/*.md --outputDir static/content/ --summaryOutput static/content/summary.json --watch",
     "build:hmlg": "dotenv -e .env next build",
     "build": "dotenv -e .env.production next build",
     "start": "next start"
@@ -38,10 +40,11 @@
     "react-toastify": "^4.5.2",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
-    "redux-thunk": "^2.3.0",
-    "swagger-ui": "^3.19.4"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "dotenv-cli": "^1.4.0"
+    "dotenv-cli": "^1.4.0",
+    "processmd": "^4.4.2",
+    "raw-loader": "^1.0.0"
   }
 }

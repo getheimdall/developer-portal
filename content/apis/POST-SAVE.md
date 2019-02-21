@@ -1,28 +1,28 @@
 ---
- tag: Environments
- path: /v1/api/enviroments
- verb: GET
+ tag: Apis
+ path: /v1/api/apis
+ verb: POST
 ---
 
-# Find all environments
+# Save an Api
 
-**Description:** Find all environemnts
+**Description:** Save an api
 
 ## Architecture
 
-**Tag name:** Environments
+**Tag name:** Apis
 
-**Path:** GET /v1/api/environments
+**Path:** POST /v1/api/apis
 
-**Resource Name:** br.com.conductor.heimdall.api.resource.EnvironmentResource
+**Resource Name:** br.com.conductor.heimdall.api.resource.ApiResource
 
-**Service Name:** br.com.conductor.heimdall.core.service.EnvironmentService
+**Service Name:** br.com.conductor.heimdall.core.service.ApiService
 
-**Method Name**: list
+**Method Name**: save
 
 ## Request
 
-**Request Name:** br.com.conductor.heimdall.core.dto.EnvironmentDTO
+**Request Name:** br.com.conductor.heimdall.core.dto.ApiDTO
 
 |Param | Description | Param Type | Data type | Example |
 |---|---|---|---|---|
@@ -41,7 +41,7 @@
 
 ## Response
 
-**Response name:** br.com.conductor.heimdall.core.dto.page.EnvironmentPage
+**Response name:** br.com.conductor.heimdall.core.dto.page.ApiPage
 
 | Param | Description | Data type | Example |
 |---|---|---|---|
@@ -60,30 +60,13 @@
 
 ```json
 {
-  "number": 0,
-  "size": 10,
-  "totalPages": 1,
-  "numberOfElements": 1,
-  "totalElements": 1,
-  "firstPage": false,
-  "hasPreviousPage": false,
-  "hasNextPage": false,
-  "hasContent": true,
-  "first": true,
-  "last": true,
-  "nextPage": 0,
-  "previousPage": 0,
-  "content": [
-    {
-      "id": 1,
-      "name": "Host default",
-      "description": "Host default description",
-      "inboundURL": "http://127.0.0.1:8080",
-      "outboundURL": "http://127.0.0.1:8080",
-      "creationDate": "2019-01-31T14:42:08.505",
-      "status": "ACTIVE",
-      "variables": {}
-    }
-  ]
+  "id": 1,
+  "name": "Host default",
+  "description": "Host default description",
+  "inboundURL": "http://127.0.0.1:8080",
+  "outboundURL": "http://127.0.0.1:8080",
+  "creationDate": "2019-01-31T14:42:08.505",
+  "status": "ACTIVE",
+  "variables": {}
 }
 ```

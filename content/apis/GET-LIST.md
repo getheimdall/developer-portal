@@ -1,28 +1,28 @@
 ---
- tag: Environments
- path: /v1/api/enviroments
+ tag: Apis
+ path: /v1/api/apis
  verb: GET
 ---
 
-# Find all environments
+# Find all apis
 
-**Description:** Find all environemnts
+**Description:** Find all apis
 
 ## Architecture
 
-**Tag name:** Environments
+**Tag name:** Apis
 
-**Path:** GET /v1/api/environments
+**Path:** GET /v1/api/apis
 
-**Resource Name:** br.com.conductor.heimdall.api.resource.EnvironmentResource
+**Resource Name:** br.com.conductor.heimdall.api.resource.ApiResource
 
-**Service Name:** br.com.conductor.heimdall.core.service.EnvironmentService
+**Service Name:** br.com.conductor.heimdall.core.service.ApiService
 
 **Method Name**: list
 
 ## Request
 
-**Request Name:** br.com.conductor.heimdall.core.dto.EnvironmentDTO
+**Request Name:** br.com.conductor.heimdall.core.dto.ApiDTO
 
 |Param | Description | Param Type | Data type | Example |
 |---|---|---|---|---|
@@ -41,7 +41,7 @@
 
 ## Response
 
-**Response name:** br.com.conductor.heimdall.core.dto.page.EnvironmentPage
+**Response name:** br.com.conductor.heimdall.core.dto.page.ApiPage
 
 | Param | Description | Data type | Example |
 |---|---|---|---|

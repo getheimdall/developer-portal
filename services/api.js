@@ -34,7 +34,15 @@ const getApiById = (id) => {
     })
 }
 
+const getDescriptionResources = async () => {
+    const result = await import ('../static/content/resources.json')
+    const descriptions = result.default
+
+    return descriptions
+}
+
 export const apiService = {
     getApiSwagger,
-    getApiById
+    getApiById,
+    getDescriptionResources
 }

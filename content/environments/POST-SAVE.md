@@ -1,6 +1,6 @@
 ---
  tag: Environments
- path: /v1/api/enviroments
+ path: /v1/api/environments
  verb: POST
 ---
 
