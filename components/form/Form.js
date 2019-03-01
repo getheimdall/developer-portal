@@ -3,7 +3,7 @@ import Col from '../col'
 
 const Form = ({ children, title, description, backgroundImage }) => (
     <Row className="form">
-        <Col g={12} m={12}>
+        <Col>
             <div className={`form__card card ${backgroundImage ? 'form__card--background' : ''}`} 
                 style={ backgroundImage ? {backgroundImage: `url('${backgroundImage}')`} : { paddingRight: 30 } } >
             <div className={ backgroundImage ? 'form__wrap' : 'container'}>

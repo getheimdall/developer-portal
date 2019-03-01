@@ -28,11 +28,11 @@ const getAuthentication = () => {
     })
 }
 
-const existApiAndPlanDefault = () => {
+const existApiAndPlanDefault = async () => {
   const apiId = process.env.REACT_PORTAL_API_ID
   const planDefaultId = process.env.REACT_PORTAL_PLAN_DEFAULT_ID
 
-  return HTTPv1.get(`/apis/${apiId}`)
+  return await HTTPv1.get(`/apis/${apiId}`)
     .then(res => {
       return HTTPv1.get(`/plans/${planDefaultId}`)
         .then(res => { 

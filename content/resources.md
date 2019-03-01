@@ -1,4 +1,0 @@
----
-    apis: Sunt enim quis exercitation est nostrud id id velit adipisicing ullamco amet mollit. Amet nostrud eu est deserunt culpa commodo aliqua sint incididunt fugiat. Est nisi labore culpa ex nostrud laborum anim elit reprehenderit Lorem adipisicing.
-    environments: Esse ad ea ex proident laboris laboris nisi dolor tempor velit. Id ipsum elit sint exercitation occaecat occaecat amet aliqua elit laborum in. Fugiat voluptate aliqua veniam ex elit reprehenderit id voluptate officia nostrud irure ex id. Enim veniam sit fugiat ullamco exercitation. Reprehenderit aliquip dolor quis dolor fugiat enim sint aliquip ipsum.
----

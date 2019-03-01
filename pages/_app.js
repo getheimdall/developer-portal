@@ -8,9 +8,9 @@ import infoSite from './../constants/infoSite'
 import withReduxStore from '../lib/redux-store'
 import { auth } from '../utils/http'
 import 'react-toastify/dist/ReactToastify.css'
+
 import variables from '../static/scss/settings/variables.scss'
 import './styles/_app.scss'
-import 'swagger-ui/dist/swagger-ui.css'
 
 class MyApp extends App {
 

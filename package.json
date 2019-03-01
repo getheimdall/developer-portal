@@ -29,6 +29,7 @@
     "axios": "^0.18.0",
     "dompurify": "^1.0.9",
     "dotenv": "^6.2.0",
+    "httpsnippet": "^1.16.6",
     "next": "^7.0.2",
     "next-nprogress": "^1.4.0",
     "node-sass": "^4.11.0",

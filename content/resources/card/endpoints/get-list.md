@@ -1,33 +1,35 @@
 ---
- tag: Environments
+ tag: card
  path: /v1/api/enviroments
  verb: GET
 ---
 
-# Find all environments
+# Find all cards
 
-**Description:** Find all environemnts
+**Description:** Find all cards
 
 ## Architecture
 
-**Tag name:** Environments
+**Tag:** Card
 
-**Path:** GET /v1/api/environments
+**Path:** /v1/api/card
 
-**Resource Name:** br.com.conductor.heimdall.api.resource.EnvironmentResource
+**Resource Name:** br.com.conductor.heimdall.api.resource.CardResource
 
-**Service Name:** br.com.conductor.heimdall.core.service.EnvironmentService
+**Service Name:** br.com.conductor.heimdall.core.service.Cardervice
 
 **Method Name**: list
 
 ## Request
 
-**Request Name:** br.com.conductor.heimdall.core.dto.EnvironmentDTO
+<p class="center-paragraph">
+  <strong>Request Name:</strong> br.com.conductor.heimdall.core.dto.CardDTO
+</p>
 
 |Param | Description | Param Type | Data type | Example |
 |---|---|---|---|---|
-| name | Name of the environment | Query | string | Host default |
-| description | Description of the environment | Query | string | Host default description |
+| name | Name of the card | Query | string | Host default |
+| description | Description of the card | Query | string | Host default description |
 | inboundURL | IP to receive the request | Query | string | http://127.0.0.1:8080 |
 | outboundURL | IP to send the response | Query | string | http://127.0.0.1:8080 |
 | status | Validate as active or inactive | Query | string | ACTIVE |
@@ -36,21 +38,23 @@
 
 ### Request example:
 ```
-/v1/api/environments?name=Host&status=ACTIVE&offeset=0&limit=10
+/v1/api/Card?name=Host&status=ACTIVE&offeset=0&limit=10
 ```
 
 ## Response
 
-**Response name:** br.com.conductor.heimdall.core.dto.page.EnvironmentPage
+<p class="center-paragraph">
+  <strong>Response name:</strong> br.com.conductor.heimdall.core.dto.page.CardPage
+</p>
 
 | Param | Description | Data type | Example |
 |---|---|---|---|
 | id | Identifier object | Long | 1 |
-| name | Name of the environment | string | Host default |
-| description | Description of the environment | string | Host default description |
+| name | Name of the card | string | Host default |
+| description | Description of the card | string | Host default description |
 | inboundURL | IP to receive the request | string | http://127.0.0.1:8080 |
 | outboundURL | IP to send the response | string | http://127.0.0.1:8080 |
-| creationDate | Date of environment was created | date | 2019-01-31T14:42:08.505 |
+| creationDate | Date of card was created | date | 2019-01-31T14:42:08.505 |
 | status | Validate as active or inactive | string | ACTIVE |
 | variables | Object with key and value | object | {}
 

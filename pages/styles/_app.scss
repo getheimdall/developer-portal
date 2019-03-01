@@ -1,10 +1,11 @@
 @import './../../static/scss/main.scss';
-@import './api-swagger.scss';
 @import './apps.scss';
 @import './how-do.scss';
 @import './index.scss';
 @import './modeling.scss';
 @import './updates-api.scss';
+@import './api-browser.scss';
+@import './docs/api.scss';
 
 a {
     color: $color-text-main;
@@ -46,4 +47,13 @@ hr {
     &.Toastify__toast--info {
         background: $color-info;
     }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background: $color-background-main;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-gray-1;
 }

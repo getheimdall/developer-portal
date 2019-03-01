@@ -35,7 +35,7 @@ const getApiById = (id) => {
 }
 
 const getDescriptionResources = async () => {
-    const result = await import ('../static/content/resources.json')
+    const result = await import ('../static/content/summary.json')
     const descriptions = result.default
 
     return descriptions

@@ -1,0 +1,28 @@
+@import './../../static/scss/settings/variables.scss';
+
+.apis-section {
+
+    .section-left {
+        text-indent: 20px;
+
+        &.fixed {
+            position: fixed;
+        }
+
+        &.absolute {
+            position: absolute;
+            bottom: 0;
+        }
+    
+        .section-left-topics {
+            li {
+                margin-bottom: 10px;
+                width: 220px;
+            }
+        }
+    }
+
+    .topics {
+        padding-top: 120px;
+    }
+}
