@@ -5,10 +5,7 @@ import Page from './../../components/page'
 import SectionPage from './../../components/section/SectionPage'
 import Row from './../../components/row'
 import Col from './../../components/col'
-import Card from './../../components/card'
-import FormGroup from './../../components/form/FormGroup'
 import { getApi } from '../../connectors/actions/api'
-import Resource from '../../components/resource/Resource'
 
 class Api extends React.Component {
 
@@ -46,13 +43,14 @@ class Api extends React.Component {
 
     loadTopics = async resource => {
         const { topics } = resource
-        const topicsIndexes = Object.keys(topics)
-        const topicsResult = {}
+        const topicsResult = []
 
-        topicsIndexes.forEach(topicIndex => {
-            fetch(`/${resource.dir}/${topics[topicIndex].file}.json`).then(topicJson => {
+        console.log(topics)
+
+        topics.forEach(topic => {
+            fetch(`/${resource.dir}/${topic.file}.json`).then(topicJson => {
                 topicJson.json().then(result => {
-                    topicsResult[topicIndex] = result
+                    topicsResult.push(result)
                     this.forceUpdate()
                 })
             })
@@ -75,6 +73,10 @@ class Api extends React.Component {
         }
     }
 
+    sortByOrder = (a, b) => {
+        return a.order - b.order
+    }
+
     render() {
 
         const { api } = this.props
@@ -95,11 +97,8 @@ class Api extends React.Component {
                 </Page>
             )
         }
-        
-        const topicsIndexes = Object.keys(resource.topics)
-        const find = topicsIndexes.find(topicIndex => topics[topicIndex] === undefined )
-        
-        if (find) {
+
+        if (topics.lenght !== resource.topics.lenght) {
             return (
                 <Page>
                     <SectionPage className="section--last section--top-space" title="Loading some topics..."/>
@@ -115,27 +114,28 @@ class Api extends React.Component {
                             <div className={`section-left ${this.state.sectionLeftAbsolute ? 'absolute' : 'fixed'}`} id="section-left">
                                 <h5>Menu Navigation</h5>
                                 <br/>
-                                <o className="section-left-topics">
-                                    { 
-                                        topicsIndexes.map(topicIndex => {
-                                            return (
-                                                <li key={topicIndex}><a href={`#${topicIndex}`}>{this.state.topics[topicIndex].title}</a></li>
-                                            )
-                                        }) 
+                                <ol className="section-left-topics">
+                                    {
+                                        resource.topics.sort(this.sortByOrder).map(topic => {
+                                            return <li key={topic.id}><a href={`#${topic.id}`}>{topic.name}</a></li>
+                                        })
                                     }
-                                </o>
+                                </ol>
                             </div>
                         </Col>
                         <Col g={9} m={9}>
                             <ReactMarkdown source={this.state.resource.bodyContent} />
                             <div id="content-topics">
                                 {
-                                    topicsIndexes.map(topicIndex => {
-                                        return (
-                                            <div id={topicIndex} className="topics" key={topicIndex}>
-                                                <ReactMarkdown source={topics[topicIndex].bodyContent} />
-                                            </div>
-                                        )
+                                    resource.topics.sort(this.sortByOrder).map(topicResource => {
+                                        const topic = topics.find(t => t.id === topicResource.id)
+                                        if (topic) {
+                                            return (
+                                                <div id={topic.id} className="topics" key={topic.id}>
+                                                    <ReactMarkdown source={topic.bodyContent} />
+                                                </div>
+                                            )
+                                        }
                                     }) 
                                 }
                             </div>

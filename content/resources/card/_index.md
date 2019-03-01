@@ -1,14 +1,21 @@
 ---
     topics:
-        get-started: 
-            name: Get Started
-            file: get-started
-        introduction: 
-            name: Introduction
-            file: introduction
-        integration:
-            name: Integration
-            file: integration
+        - name: Get Started
+          file: get-started
+          id: getStarted
+          order: 0
+        - name: Introduction
+          file: introduction
+          id: introduction
+          order: 1
+        - name: Integration
+          file: integration
+          id: integration
+          order: 2
+    endpoints:
+        - verb: GET
+          id: get-list
+          path: /v1/api/cards
 ---
 
 # Card

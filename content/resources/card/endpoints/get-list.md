@@ -1,7 +1,17 @@
 ---
- tag: card
- path: /v1/api/enviroments
- verb: GET
+  tag: card
+  path: /v1/api/cards
+  verb: GET
+  request:
+    headers:
+      contentType: application/json
+    params:
+      name: Card
+      description: Card
+      offset: 0
+      limit: 10
+      status: ACTIVE
+    body: ''
 ---
 
 # Find all cards
@@ -12,7 +22,7 @@
 
 **Tag:** Card
 
-**Path:** /v1/api/card
+**Path:** /v1/api/cards
 
 **Resource Name:** br.com.conductor.heimdall.api.resource.CardResource
 
@@ -30,15 +40,13 @@
 |---|---|---|---|---|
 | name | Name of the card | Query | string | Host default |
 | description | Description of the card | Query | string | Host default description |
-| inboundURL | IP to receive the request | Query | string | http://127.0.0.1:8080 |
-| outboundURL | IP to send the response | Query | string | http://127.0.0.1:8080 |
 | status | Validate as active or inactive | Query | string | ACTIVE |
 | offset | Count pagination | Query | integer | 0 |
 | limit | Limit of result by page | Query | integer | 10 |
 
 ### Request example:
 ```
-/v1/api/Card?name=Host&status=ACTIVE&offeset=0&limit=10
+/v1/api/Card?name=Host&status=ACTIVE&offset=0&limit=10
 ```
 
 ## Response
@@ -50,13 +58,10 @@
 | Param | Description | Data type | Example |
 |---|---|---|---|
 | id | Identifier object | Long | 1 |
-| name | Name of the card | string | Host default |
-| description | Description of the card | string | Host default description |
-| inboundURL | IP to receive the request | string | http://127.0.0.1:8080 |
-| outboundURL | IP to send the response | string | http://127.0.0.1:8080 |
+| name | Name of the card | string | Card test |
+| description | Description of the card | string | Card test description |
 | creationDate | Date of card was created | date | 2019-01-31T14:42:08.505 |
 | status | Validate as active or inactive | string | ACTIVE |
-| variables | Object with key and value | object | {}
 
 **Response code status:** 200
 
@@ -80,13 +85,10 @@
   "content": [
     {
       "id": 1,
-      "name": "Host default",
-      "description": "Host default description",
-      "inboundURL": "http://127.0.0.1:8080",
-      "outboundURL": "http://127.0.0.1:8080",
+      "name": "Card test",
+      "description": "Card test description",
       "creationDate": "2019-01-31T14:42:08.505",
-      "status": "ACTIVE",
-      "variables": {}
+      "status": "ACTIVE"
     }
   ]
 }

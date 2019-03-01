@@ -1,8 +1,17 @@
 ---
     topics:
-        get-started: resources/environments/get-started
-        introduction: resources/environments/introduction
-        integration: resources/environments/integration
+        - name: Get Started
+          file: get-started
+          id: getStarted
+          order: 0
+        - name: Introduction
+          file: introduction
+          id: introduction
+          order: 1
+        - name: Integration
+          file: integration
+          id: integration
+          order: 2
 ---
 
 # Environments
