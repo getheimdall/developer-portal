@@ -1,0 +1,9 @@
+@import '../../static/scss/settings/variables.scss';
+
+pre {
+    
+    background: $color-pre-code;
+    color: $color-gray-4;
+    padding: 10px;
+    border-radius: 5px;
+}

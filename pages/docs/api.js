@@ -5,7 +5,9 @@ import Page from './../../components/page'
 import SectionPage from './../../components/section/SectionPage'
 import Row from './../../components/row'
 import Col from './../../components/col'
+import PanelTab from '../../components/panelTab'
 import { getApi } from '../../connectors/actions/api'
+import Endpoint from './../../components/endpoint'
 
 class Api extends React.Component {
 
@@ -45,8 +47,6 @@ class Api extends React.Component {
         const { topics } = resource
         const topicsResult = []
 
-        console.log(topics)
-
         topics.forEach(topic => {
             fetch(`/${resource.dir}/${topic.file}.json`).then(topicJson => {
                 topicJson.json().then(result => {
@@ -77,6 +77,20 @@ class Api extends React.Component {
         return a.order - b.order
     }
 
+    createTabsContentByVerb = verb => {
+        const links = this.state.resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
+            return (
+                <li key={endpoint.id}><a href={`#${endpoint.id}`}>{`${endpoint.verb} - ${endpoint.path}`}</a></li>
+            )
+        })
+
+        return (
+            <ol>
+                {links}
+            </ol>
+        )
+    }
+
     render() {
 
         const { api } = this.props
@@ -105,6 +119,18 @@ class Api extends React.Component {
                 </Page>
             )
         }
+
+        const verbs = new Set([])
+
+        resource.endpoints.forEach(endpoint => {
+            verbs.add(endpoint.verb)
+        })
+
+        const contentsByVerb = []
+
+        verbs.forEach(verb => {
+            contentsByVerb.push(this.createTabsContentByVerb(verb))
+        })
 
         return (
             <Page>
@@ -138,6 +164,27 @@ class Api extends React.Component {
                                         }
                                     }) 
                                 }
+                            </div>
+                        </Col>
+                        <Col g={3} m={3}>
+                            <div className="console">
+                                <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
+                            </div>
+                        </Col>
+                        <Col g={9} m={9}>
+                            <div id="endpoints">
+                                <h3>Endpoints</h3>
+                                <br/>
+                                { Array.from(verbs).map(verb => {
+                                    return resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
+                                        return (
+                                            <div id={endpoint.id} key={endpoint.id}>
+                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} />
+                                                <hr/>
+                                            </div>
+                                        )
+                                    })
+                                }) }
                             </div>
                         </Col>
                     </Row>

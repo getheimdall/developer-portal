@@ -1,0 +1,52 @@
+@import '../../static/scss/settings/variables.scss';
+
+.panelTab {
+    width: 100%;
+    margin-top: 15px;
+
+    .tabs {
+        width: 100%;
+
+        div {
+            display: inline-block;
+            border: 1px solid $color-gray-2;
+            border-left: none;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 6px 15px;
+
+            &:first-child {
+                border-left: 1px solid $color-gray-2;
+            }
+
+            &.active {
+                background: $color-background-main;
+                border-bottom: none;
+
+                &:hover {
+                    background: $color-background-main;
+                    color: $color-text-main;
+                    cursor: not-allowed;                
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                background: $color-gray-2;
+                color: $color-gray-4;
+            }
+        }
+    }
+
+    .content {
+        
+        .tab-content {
+            padding: 10px;
+            display: none;
+
+            &.active {
+                display: block !important;
+            }
+        }
+    }
+}

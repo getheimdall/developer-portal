@@ -16,6 +16,12 @@
         - verb: GET
           id: get-list
           path: /v1/api/cards
+        - verb: POST
+          id: post-save
+          path: /v1/api/cards
+        - verb: DELETE
+          id: delete-deleteById
+          path: /v1/api/cards/{id}
 ---
 
 # Card
