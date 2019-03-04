@@ -173,14 +173,12 @@ class Api extends React.Component {
                         </Col>
                         <Col g={9} m={9}>
                             <div id="endpoints">
-                                <h3>Endpoints</h3>
-                                <br/>
                                 { Array.from(verbs).map(verb => {
                                     return resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
                                         return (
                                             <div id={endpoint.id} key={endpoint.id}>
-                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} />
                                                 <hr/>
+                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} />
                                             </div>
                                         )
                                     })

@@ -1,9 +1,51 @@
 @import '../../static/scss/settings/variables.scss';
 
-pre {
-    
-    background: $color-pre-code;
-    color: $color-gray-4;
-    padding: 10px;
-    border-radius: 5px;
+.endpoint-markdown {
+
+    padding-top: 50px;
+
+    table {
+        border: 1px solid $color-gray-3;
+        width: 100%;
+
+        tr:nth-child(odd) {
+            background: $color-gray-3;
+        }
+
+        tr:nth-child(even) {
+            background: $color-gray-4;
+        }
+
+        th {
+            background: $color-gray-4;
+        }
+
+        td, th {
+            padding: 10px;
+        }
+
+        margin-bottom: 10px;
+    }
+
+    .center-paragraph {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    pre {
+        
+        background: $color-pre-code;
+        color: $color-gray-4;
+        padding: 10px;
+        border-radius: 5px;
+    }
 }

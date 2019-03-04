@@ -11,7 +11,6 @@ class Endpoint extends React.Component {
 
     componentDidMount() {
         const file = this.props.file
-        console.log(file)
 
         this.loadEndpoint(file).then(endpoint => {
             console.log(endpoint)
@@ -33,7 +32,10 @@ class Endpoint extends React.Component {
         }
 
         return (
-            <ReactMarkdown source={endpoint.bodyContent} />
+            <div className="endpoint-markdown">
+                <h3>{`${endpoint.verb} - ${endpoint.path}`}</h3>
+                <ReactMarkdown source={endpoint.bodyContent} escapeHtml={false}/>
+            </div>
         )
     }
 } 
