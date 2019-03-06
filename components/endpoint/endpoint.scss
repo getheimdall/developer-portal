@@ -3,6 +3,7 @@
 .endpoint-markdown {
 
     padding-top: 50px;
+    position: relative;
 
     table {
         border: 1px solid $color-gray-3;
@@ -47,5 +48,28 @@
         color: $color-gray-4;
         padding: 10px;
         border-radius: 5px;
+    }
+
+    .dev-console {
+        
+        .access {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background: $color-pre-code;
+            color: $color-accent;
+            padding: 10px;
+            border-radius: 4px;
+
+            &:hover {
+                cursor: pointer;
+                color: $color-gray-4;
+            }
+        }
+
+        .content {
+            padding-top: 80px;
+        }
+
     }
 }

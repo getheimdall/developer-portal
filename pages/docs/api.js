@@ -60,7 +60,7 @@ class Api extends React.Component {
     }
 
     handleScroll = () => {
-        const contentTopics = document.getElementById('content-topics')
+        const contentTopics = document.getElementById('endpoints')
 
         if (contentTopics) {
             const windowScroll = document.documentElement.scrollTop
@@ -147,6 +147,9 @@ class Api extends React.Component {
                                         })
                                     }
                                 </ol>
+                                <div className="console">
+                                    <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
+                                </div>
                             </div>
                         </Col>
                         <Col g={9} m={9}>
@@ -165,20 +168,13 @@ class Api extends React.Component {
                                     }) 
                                 }
                             </div>
-                        </Col>
-                        <Col g={3} m={3}>
-                            <div className="console">
-                                <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
-                            </div>
-                        </Col>
-                        <Col g={9} m={9}>
                             <div id="endpoints">
                                 { Array.from(verbs).map(verb => {
                                     return resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
                                         return (
                                             <div id={endpoint.id} key={endpoint.id}>
                                                 <hr/>
-                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} />
+                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} id={endpoint.id}/>
                                             </div>
                                         )
                                     })
