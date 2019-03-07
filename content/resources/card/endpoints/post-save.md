@@ -51,7 +51,7 @@
 | status | Validate as active or inactive | Query | string | ACTIVE |
 
 ### Request example:
-```
+```bash
 /v1/api/card
 ```
 
@@ -69,7 +69,9 @@
 | creationDate | Date of card was created | date | 2019-01-31T14:42:08.505 |
 | status | Validate as active or inactive | string | ACTIVE |
 
-**Response code status:** 200
+<p class="center-paragraph">
+  <strong>Response code status:</strong> 200
+</p>
 
 ### Example Response:
 

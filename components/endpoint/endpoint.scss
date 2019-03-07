@@ -42,18 +42,6 @@
         font-weight: bold;
     }
 
-    pre {
-        background: $color-pre-code;
-        color: $color-gray-4;
-        padding: 10px;
-        border-radius: 5px;
-        white-space: pre-wrap;       
-        white-space: -moz-pre-wrap;  
-        white-space: -pre-wrap;      
-        white-space: -o-pre-wrap;    
-        word-wrap: break-word;       
-    }
-
     .dev-console {
         
         .dev-console-access {

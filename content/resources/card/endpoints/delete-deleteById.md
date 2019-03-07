@@ -35,16 +35,17 @@
 **Method Name**: deleteById
 
 ### Request example:
-```
+```bash
 /v1/api/card/1
 ```
 
 ## Response
 
-**Response code status:** 200
+<p class="center-paragraph">
+  <strong>Response code status:</strong> 200
+</p>
 
 ### Example Response:
-
 ```json
 { }
 ```
