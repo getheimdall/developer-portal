@@ -3,15 +3,31 @@
   path: /v1/api/cards
   verb: GET
   request:
+    method: GET
+    url: /v1/api/cards
+    httpVersion: HTTP/1.1
+    cookies: []
     headers:
-      contentType: application/json
-    params:
-      name: Card
-      description: Card
-      offset: 0
-      limit: 10
-      status: ACTIVE
-    body: ''
+      - name: "Content-Type"
+        value: application/json
+        comment: ''
+    queryString:
+      - name: name
+        value: Card
+        comment: ''
+      - name: status
+        value: ACTIVE
+        comment: ''
+      - name: offset
+        value: '0'
+        comment: ''
+      - name: limit
+        value: '10'
+        comment: ''
+    postData: {}
+    headerSize: 0
+    bodySize: 0
+    comment: ''
 ---
 
 # Find all cards

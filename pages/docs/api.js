@@ -60,12 +60,13 @@ class Api extends React.Component {
     }
 
     handleScroll = () => {
-        const contentTopics = document.getElementById('endpoints')
+        const endpoints = document.getElementById('endpoints')
+        const contentTopics = document.getElementById('content-topics')
 
         if (contentTopics) {
             const windowScroll = document.documentElement.scrollTop
 
-            if (windowScroll > contentTopics.scrollHeight) {
+            if (windowScroll > (contentTopics.scrollHeight + endpoints.scrollHeight - 100)) {
                 this.setState({ ...this.state, sectionLeftAbsolute: true })
             } else {
                 this.setState({ ...this.state, sectionLeftAbsolute: false })
@@ -147,6 +148,7 @@ class Api extends React.Component {
                                         })
                                     }
                                 </ol>
+                                <hr/>
                                 <div className="console">
                                     <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
                                 </div>

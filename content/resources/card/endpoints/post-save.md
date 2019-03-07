@@ -3,15 +3,23 @@
   path: /v1/api/cards
   verb: POST
   request:
+    method: POST
+    url: /v1/api/cards
+    httpVersion: HTTP/1.1
+    cookies: []
     headers:
-      contentType: application/json
-    body: '
-      {
-        "name":"Card test",
-        "description":"Card description test",
-        "status": "ACTIVE"
-      }
-    '
+      - name: "Content-Type"
+        value: application/json
+        comment: ''
+    queryString: []
+    postData: 
+      mimeType: application/json
+      params: []
+      text: '{"name": "Card test", "description": "Card description test", "status": "ACTIVE"}'
+      comment: ''
+    headerSize: 0
+    bodySize: 0
+    comment: ''
 ---
 
 # Save a card

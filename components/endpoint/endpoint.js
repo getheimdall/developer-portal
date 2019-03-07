@@ -1,24 +1,35 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import HttpSnnipet from 'httpsnippet'
+import Prism from 'prismjs/components/prism-core'
 
+import 'prismjs/components/prism-markup'
+import 'prismjs/components/prism-css'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-java'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-bash'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-javascript'
+
+import PanelTab from '../panelTab'
 import './endpoint.scss'
-import PanelTab from '../panelTab';
+
+const codes = [
+    'Shell',
+    'Java',
+    'Go',
+    'Javascript',
+    'Node',
+    'Python'
+]
 
 class Endpoint extends React.Component {
 
     state = {
         endpoint: undefined,
-        snnipet: undefined,
-        codes: [
-            'Shell',
-            'Java',
-            'Go',
-            'Javascript',
-            'Node',
-            'PHP',
-            'Python'
-        ]
+        snnipet: undefined
     }
 
     componentDidMount() {
@@ -37,13 +48,14 @@ class Endpoint extends React.Component {
 
     createSnnipet = () => {
         const { endpoint } = this.state
+        let request = endpoint.request
+        
+        request.url = `http://localhost:8080${request.url}`
+        request.headerSize = JSON.stringify(request.headers).length
+        request.bodySize = JSON.stringify(request.postData).length
 
         if (endpoint) {
-            const snnipet = new HttpSnnipet({
-                url: `http://localhost:8080/api${endpoint.path}`,
-                method: endpoint.verb
-            })
-    
+            const snnipet = new HttpSnnipet(request)
             this.setState({...this.state, snnipet })
         }
     }
@@ -54,16 +66,18 @@ class Endpoint extends React.Component {
     }
 
     createSnnipetsInPanelTab = () => {
-        const { snnipet, codes} = this.state
-
+        const { snnipet } = this.state
         const codesView = codes.map(code => {
+            const codeLowerCase = code.toLowerCase()
+            const className = `language-${codeLowerCase === 'node' ? 'javascript' : codeLowerCase}`
             return (
                 <pre>
-                    <code>{snnipet.convert(code.toLowerCase(), { indent: false})}</code>
+                    <code className={className}>{snnipet.convert(codeLowerCase, { indent: false})}</code>
                 </pre>
             )
         })
 
+        Prism.highlightAll()
         return <PanelTab tabs={codes} tabsContent={codesView}/>
     }
 
@@ -80,8 +94,8 @@ class Endpoint extends React.Component {
                 <h3>{`${endpoint.verb} - ${endpoint.path}`}</h3>
                 <ReactMarkdown source={endpoint.bodyContent} escapeHtml={false}/>
                 <div className="dev-console">
-                    <a href={`#console-${this.props.id}`} className="access">Go to console</a>
-                    <div className="content" id={`console-${this.props.id}`}>
+                    <a href={`#console-${this.props.id}`} className="dev-console-access">Go to console</a>
+                    <div className="dev-console-content" id={`console-${this.props.id}`}>
                         <h2>Console Dev</h2>
                         <div className="form">
                             { !this.state.snnipet && <p>Parsing request...</p>}

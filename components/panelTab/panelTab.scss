@@ -10,10 +10,10 @@
         div {
             display: inline-block;
             border: 1px solid $color-gray-2;
-            border-left: none;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             padding: 6px 15px;
+            text-indent: 0;
 
             &:first-child {
                 border-left: 1px solid $color-gray-2;
@@ -38,10 +38,10 @@
         }
     }
 
-    .content {
+    .panelTab-content {
         
         .tab-content {
-            padding: 10px;
+            padding: 10px 0;
             display: none;
 
             &.active {

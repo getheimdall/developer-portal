@@ -1,4 +1,5 @@
 @import '../../static/scss/settings/variables.scss';
+@import '../../static/scss/vendor/prism.scss';
 
 .endpoint-markdown {
 
@@ -43,19 +44,23 @@
     }
 
     pre {
-        
         background: $color-pre-code;
         color: $color-gray-4;
         padding: 10px;
         border-radius: 5px;
+        white-space: pre-wrap;       
+        white-space: -moz-pre-wrap;  
+        white-space: -pre-wrap;      
+        white-space: -o-pre-wrap;    
+        word-wrap: break-word;       
     }
 
     .dev-console {
         
-        .access {
+        .dev-console-access {
             position: absolute;
             right: 0;
-            top: 10px;
+            top: 50px;
             background: $color-pre-code;
             color: $color-accent;
             padding: 10px;
@@ -67,7 +72,7 @@
             }
         }
 
-        .content {
+        .dev-console-content {
             padding-top: 80px;
         }
 

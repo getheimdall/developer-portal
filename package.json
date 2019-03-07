@@ -33,6 +33,7 @@
     "next": "^7.0.2",
     "next-nprogress": "^1.4.0",
     "node-sass": "^4.11.0",
+    "prismjs": "^1.15.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-markdown": "^4.0.4",

@@ -20,24 +20,22 @@ class PanelTab extends React.Component {
 
         return (
             <div className="panelTab">
-                <Row>
-                    <Col className="tabs">
-                        { tabs.map((tab, index) => {
-                            return (
-                                <div key={index} onClick={() => this.changeTabActive(index)} className={this.state.tabActive === index ? 'active': ''}>{tab}</div>
-                            )
-                        })}
-                    </Col>
-                    <Col className="content">
-                        {tabsContent.map((tabContent, index) => {
-                            return (
-                                <div key={index} className={`tab-content ${this.state.tabActive === index ? 'active' : ''}`}>
-                                    {tabContent}
-                                </div>
-                            )
-                        })}
-                    </Col>
-                </Row>
+                <div className="tabs">
+                    { tabs.map((tab, index) => {
+                        return (
+                            <div key={index} onClick={() => this.changeTabActive(index)} className={this.state.tabActive === index ? 'active': ''}>{tab}</div>
+                        )
+                    })}
+                </div>
+                <div className="panelTab-content">
+                    {tabsContent.map((tabContent, index) => {
+                        return (
+                            <div key={index} className={`tab-content ${this.state.tabActive === index ? 'active' : ''}`}>
+                                {tabContent}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
