@@ -1,8 +1,6 @@
 @import '../../static/scss/settings/variables.scss';
 
 .endpoint-markdown {
-
-    padding-top: 50px;
     position: relative;
 
     table {
@@ -32,22 +30,39 @@
         text-align: center;
     }
 
+    h1, h2, h3 {
+        font-weight: bold;
+    }
+
     h1 {
         font-size: 1.8em;
-        font-weight: bold;
+
+        &.endpoint-title {
+            font-size: 2em;
+            margin-bottom: 80px;
+        }
     }
 
     h2 {
         font-size: 1.5em;
-        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    p {
+        strong {
+            font-weight: bold;
+        }
     }
 
     .dev-console {
         
         .dev-console-access {
             position: absolute;
-            right: 0;
-            top: 50px;
+            right: 10px;
+            top: -10px;
             background: $color-pre-code;
             color: $color-accent;
             padding: 10px;
@@ -60,8 +75,24 @@
         }
 
         .dev-console-content {
-            padding-top: 80px;
+            padding-top: 10px;
         }
 
+        label {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .ace_editor {
+            height: 300px !important;
+            line-height: 1.2em !important;
+            font-size: 0.88em !important;
+            overflow-y: auto !important;
+            border-radius: 4px !important;
+
+            .ace_gutter, .ace_content{
+                padding: 10px 0;
+            }
+        }
     }
 }

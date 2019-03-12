@@ -1,28 +1,41 @@
 @import './../../static/scss/settings/variables.scss';
 
-.apis-section {
+.section-api-top-space {
 
-    .section-left {
-        text-indent: 20px;
+    margin-top: 90px;
 
-        &.fixed {
-            position: fixed;
-        }
+    .apis-section {
 
-        &.absolute {
-            position: absolute;
-            bottom: 0;
-        }
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        top: 160px;
+        height: 80%;
+
+        .menu-api {
+            position: relative;
+            max-height: 98%;
+            overflow-y: auto;
     
-        .section-left-topics {
-            li {
-                margin-bottom: 10px;
-                width: 220px;
+            .content-menu {
+                .topics-menu, .endpoints-menu {
+                    li {
+                        margin-bottom: 10px;
+                        width: 220px;
+                    }
+                }
             }
         }
-    }
-
-    .topics {
-        padding-top: 120px;
+    
+        .topics {
+            padding-top: 30px;
+        }
+    
+    
+        .apis-description {
+            height: 98%;
+            overflow-y: auto;
+            margin-top: 0 !important;
+        }
     }
 }

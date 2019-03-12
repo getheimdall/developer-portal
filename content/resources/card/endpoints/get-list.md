@@ -15,6 +15,9 @@
       - name: name
         value: Card
         comment: ''
+      - name: description
+        value: ''
+        comment: ''
       - name: status
         value: ACTIVE
         comment: ''

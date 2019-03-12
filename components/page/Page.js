@@ -4,15 +4,24 @@ import EndMenu from './../menu/EndMenu'
 import Footer from './../footer'
 import FooterMenu from './../menu/FooterMenu'
 
-const Page = ({ children }) => (
+const Page = ({ children, footer }) => (
     <div className="page">
         <Menu />
         <MenuMobile />
         { children }
-        <EndMenu />
-        <FooterMenu />
-        <Footer />
+        {
+            footer && 
+            [
+                <EndMenu />,
+                <FooterMenu />,
+                <Footer />
+            ]
+        }
     </div>
 )
+
+Page.defaultProps = {
+    footer: true
+}
 
 export default Page

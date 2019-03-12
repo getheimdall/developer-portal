@@ -6,8 +6,9 @@ import SectionPage from './../../components/section/SectionPage'
 import Row from './../../components/row'
 import Col from './../../components/col'
 import PanelTab from '../../components/panelTab'
-import { getApi } from '../../connectors/actions/api'
+import { getApi, clearApi } from '../../connectors/actions/api'
 import Endpoint from './../../components/endpoint'
+import Card from './../../components/card'
 
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-css'
@@ -28,7 +29,8 @@ class Api extends React.Component {
     state = {
         resource: undefined,
         topics: undefined,
-        sectionLeftAbsolute: false
+        sectionLeftAbsolute: false,
+        setIntervalId: undefined
     }
 
     componentDidMount() {
@@ -36,8 +38,11 @@ class Api extends React.Component {
         this.loadResource().then(resource => {
             this.setState({ ...this.state, resource })
         })
+    }
 
-        window.onscroll = () => this.handleScroll()
+    componentWillUnmount() {
+        this.props.dispatch(clearApi())
+        clearInterval(this.state.setIntervalId)
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -69,21 +74,6 @@ class Api extends React.Component {
         return topicsResult
     }
 
-    handleScroll = () => {
-        const endpoints = document.getElementById('endpoints')
-        const contentTopics = document.getElementById('content-topics')
-
-        if (contentTopics) {
-            const windowScroll = document.documentElement.scrollTop
-
-            if (windowScroll > (contentTopics.scrollHeight + endpoints.scrollHeight - 100)) {
-                this.setState({ ...this.state, sectionLeftAbsolute: true })
-            } else {
-                this.setState({ ...this.state, sectionLeftAbsolute: false })
-            }
-        }
-    }
-
     sortByOrder = (a, b) => {
         return a.order - b.order
     }
@@ -96,9 +86,9 @@ class Api extends React.Component {
         })
 
         return (
-            <ol>
+            <ul>
                 {links}
-            </ol>
+            </ul>
         )
     }
 
@@ -144,27 +134,29 @@ class Api extends React.Component {
         })
 
         return (
-            <Page>
-                <SectionPage className="section--last section--top-space">
+            <Page footer={false}>
+                <SectionPage className="section-api-top-space">
                     <Row className="apis-section">
-                        <Col g={3} m={3}>
-                            <div className={`section-left ${this.state.sectionLeftAbsolute ? 'absolute' : 'fixed'}`} id="section-left">
-                                <h5>Menu Navigation</h5>
-                                <br/>
-                                <ol className="section-left-topics">
-                                    {
-                                        resource.topics.sort(this.sortByOrder).map(topic => {
-                                            return <li key={topic.id}><a href={`#${topic.id}`}>{topic.name}</a></li>
-                                        })
-                                    }
-                                </ol>
-                                <hr/>
-                                <div className="console">
-                                    <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
+                        <Col g={3} m={3} className="menu-api">
+                            <Card>
+                                <h1>Menu</h1>
+                                <div className={`content-menu ${this.state.sectionLeftAbsolute ? 'absolute' : 'fixed'}`} id="section-left">
+                                    <h5>Topics</h5>
+                                    <ol className="topics-menu">
+                                        {
+                                            resource.topics.sort(this.sortByOrder).map(topic => {
+                                                return <li key={topic.id}><a href={`#${topic.id}`}>{topic.name}</a></li>
+                                            })
+                                        }
+                                    </ol>
+                                    <h5>Endpoints</h5>
+                                    <div className="endpoints-menu">
+                                        <PanelTab tabs={Array.from(verbs)} tabsContent={contentsByVerb} />
+                                    </div>
                                 </div>
-                            </div>
+                            </Card>
                         </Col>
-                        <Col g={9} m={9}>
+                        <Col g={9} m={9} className="apis-description card">
                             <ReactMarkdown source={this.state.resource.bodyContent} />
                             <div id="content-topics">
                                 {
