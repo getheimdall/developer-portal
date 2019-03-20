@@ -12,9 +12,9 @@ const Page = ({ children, footer }) => (
         {
             footer && 
             [
-                <EndMenu />,
-                <FooterMenu />,
-                <Footer />
+                <EndMenu key={0}/>,
+                <FooterMenu key={1}/>,
+                <Footer key={2}/>
             ]
         }
     </div>

@@ -1,11 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import HttpSnnipet from 'httpsnippet'
-import Prism from 'prismjs/components/prism-core'
 
 import PanelTab from '../panelTab'
 import FormGroup from './../form/FormGroup'
 import Editor from './../editor'
+import { decrementEndpoint, incrementEndpoint } from '../../connectors/actions/endpoints'
 
 import './endpoint.scss'
 
@@ -39,6 +40,10 @@ class Endpoint extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.dispatch(decrementEndpoint())
+    }
+
     createSnnipet = () => {
         const { endpoint } = this.state
         let request = endpoint.request
@@ -69,10 +74,8 @@ class Endpoint extends React.Component {
                 </pre>
             )
         })
-
-        setTimeout(() => {
-            Prism.highlightAll()
-        }, 1000)
+        
+        this.props.dispatch(incrementEndpoint())
         return <PanelTab tabs={codes} tabsContent={codesView}/>
     }
 
@@ -80,7 +83,7 @@ class Endpoint extends React.Component {
 
         const { endpoint } = this.state
         
-        if (!endpoint) {
+        if (!endpoint || !endpoint.request) {
             return <h5>Loading endpoint...</h5>
         }
         
@@ -88,7 +91,7 @@ class Endpoint extends React.Component {
         const queryParams = endpoint.request.queryString
 
         return (
-            <div className="endpoint-markdown">
+            <div className="endpoint-markdown" style={this.props.visible && { display: 'none'}}>
                 <h1 className="endpoint-title">{`${endpoint.verb} - ${endpoint.path}`}</h1>
                 <ReactMarkdown source={endpoint.bodyContent} escapeHtml={false}/>
                 <div className="dev-console">
@@ -104,8 +107,7 @@ class Endpoint extends React.Component {
                                         <Editor
                                             theme="tomorrow_night"
                                             mode="json" 
-                                            enableBasicAutocompletion
-                                            defaultValue={JSON.stringify(queryParams, null, '\t')} 
+                                            value={JSON.stringify(queryParams, null, '\t')} 
                                             debounceChangePeriod={2500}
                                             editorProps={{$blockScrolling: 'Infinity'}}
                                             width="100%"/>
@@ -120,8 +122,7 @@ class Endpoint extends React.Component {
                                         <Editor 
                                             theme="tomorrow_night" 
                                             mode="json" 
-                                            enableBasicAutocompletion
-                                            defaultValue={JSON.stringify(jsonObj, null, '\t')} 
+                                            value={JSON.stringify(jsonObj, null, '\t')} 
                                             debounceChangePeriod={2500}
                                             editorProps={{$blockScrolling: 'Infinity'}}
                                             width="100%"/>
@@ -143,4 +144,4 @@ class Endpoint extends React.Component {
     }
 } 
 
-export default Endpoint
+export default connect()(Endpoint)

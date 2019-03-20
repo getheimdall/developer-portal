@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
+import Prism from 'prismjs/components/prism-core'
+
 import Page from './../../components/page'
 import SectionPage from './../../components/section/SectionPage'
 import Row from './../../components/row'
@@ -9,6 +11,7 @@ import PanelTab from '../../components/panelTab'
 import { getApi, clearApi } from '../../connectors/actions/api'
 import Endpoint from './../../components/endpoint'
 import Card from './../../components/card'
+import LoadingEndpoints from '../../components/endpoint/loadingEndpoints'
 
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-css'
@@ -30,7 +33,8 @@ class Api extends React.Component {
         resource: undefined,
         topics: undefined,
         sectionLeftAbsolute: false,
-        setIntervalId: undefined
+        setIntervalId: undefined,
+        showEndpoints: false
     }
 
     componentDidMount() {
@@ -92,8 +96,14 @@ class Api extends React.Component {
         )
     }
 
-    render() {
+    enableEndpoints = () => {
+        Prism.highlightAll()
+        setTimeout(() => {
+            this.setState({ ...this.state, showEndpoints: true })
+        }, 1000)
+    }
 
+    render() {
         const { api } = this.props
         const { resource, topics } = this.state
 
@@ -133,6 +143,7 @@ class Api extends React.Component {
             contentsByVerb.push(this.createTabsContentByVerb(verb))
         })
 
+
         return (
             <Page footer={false}>
                 <SectionPage className="section-api-top-space">
@@ -157,33 +168,45 @@ class Api extends React.Component {
                             </Card>
                         </Col>
                         <Col g={9} m={9} className="apis-description card">
-                            <ReactMarkdown source={this.state.resource.bodyContent} />
-                            <div id="content-topics">
-                                {
-                                    resource.topics.sort(this.sortByOrder).map(topicResource => {
-                                        const topic = topics.find(t => t.id === topicResource.id)
-                                        if (topic) {
+                            {
+                                !this.state.showEndpoints &&
+                                <div className="loading-endpoints">
+                                    <div className="loading">
+                                        <LoadingEndpoints totalEndpoints={resource.endpoints.length} enableEndpoints={this.enableEndpoints}/>
+                                    </div>
+                                </div>
+                            }
+                        
+                            <div style={{ display: this.state.showEndpoints ? 'block' : 'none'}}>
+                                <ReactMarkdown source={this.state.resource.bodyContent} />
+                                <div id="content-topics">
+                                    {
+                                        resource.topics.sort(this.sortByOrder).map(topicResource => {
+                                            const topic = topics.find(t => t.id === topicResource.id)
+                                            if (topic) {
+                                                return (
+                                                    <div id={topic.id} className="topics" key={topic.id}>
+                                                        <ReactMarkdown source={topic.bodyContent} />
+                                                    </div>
+                                                )
+                                            }
+                                        }) 
+                                    }
+                                </div>
+                                <div id="endpoints">
+                                    { Array.from(verbs).map(verb => {
+                                        return resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
                                             return (
-                                                <div id={topic.id} className="topics" key={topic.id}>
-                                                    <ReactMarkdown source={topic.bodyContent} />
+                                                <div id={endpoint.id} key={endpoint.id}>
+                                                    <hr/>
+                                                    <Endpoint id={endpoint.id}
+                                                        file={`${this.props.resource}/endpoints/${endpoint.id}`}/>
                                                 </div>
                                             )
-                                        }
-                                    }) 
-                                }
-                            </div>
-                            <div id="endpoints">
-                                { Array.from(verbs).map(verb => {
-                                    return resource.endpoints.filter(endpoint => endpoint.verb === verb).map(endpoint => {
-                                        return (
-                                            <div id={endpoint.id} key={endpoint.id}>
-                                                <hr/>
-                                                <Endpoint file={`${this.props.resource}/endpoints/${endpoint.id}`} id={endpoint.id}/>
-                                            </div>
-                                        )
-                                    })
-                                }) }
-                            </div>
+                                        })
+                                    }) }
+                                </div>
+                            </div>                                            
                         </Col>
                     </Row>
                 </SectionPage>
