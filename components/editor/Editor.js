@@ -4,7 +4,12 @@ const Editor = props => {
         require('brace/mode/json')
         require('brace/theme/tomorrow_night')
     
-        return <Ace {...props}/>
+        return (
+            <div className={props.className}>
+                <Ace {...props}/>
+                {props.children}
+            </div>
+        )
     }
     
     return null

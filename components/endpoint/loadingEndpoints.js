@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class LoadingEndpoints extends React.Component {
 
     componentDidUpdate() {
-        if (this.props.endpointsCounter === this.props.totalEndpoints) {
+        if (this.props.endpointsCounter >= this.props.totalEndpoints) {
             this.props.enableEndpoints()
         }
     }

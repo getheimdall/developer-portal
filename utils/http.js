@@ -11,6 +11,10 @@ const HTTPv1 = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
+const sendRequestCustom = config => {
+    return axios(config)
+}
+
 const getAuthentication = () => {
   const accountCredentials = {
     username: process.env.REACT_PORTAL_USERNAME,
@@ -78,4 +82,4 @@ const auth = {
   existApiAndPlanDefault
 }
 
-export { HTTP, HTTPv1, auth }
+export { HTTP, HTTPv1, auth, sendRequestCustom }

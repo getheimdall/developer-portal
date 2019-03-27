@@ -63,14 +63,14 @@
             position: absolute;
             right: 10px;
             top: -10px;
-            background: $color-pre-code;
-            color: $color-accent;
-            padding: 10px;
-            border-radius: 4px;
+            display: flex;
 
-            &:hover {
-                cursor: pointer;
-                color: $color-gray-4;
+            button {
+                padding: 0 10px;
+            }
+
+            .site-btn--accent {
+                margin-right: 10px;
             }
         }
 
@@ -81,6 +81,28 @@
         label {
             font-size: 1em;
             font-weight: bold;
+        }
+
+        .form {
+            .editor {
+                position: relative;
+                
+                button {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: #0f89c3;
+                    border: none;
+                    padding: 8px 14px;
+                    color: white;
+                    border-radius: 3px;
+                    z-index: 1;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
         }
 
         .ace_editor {
