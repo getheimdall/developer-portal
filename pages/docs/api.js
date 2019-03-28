@@ -129,7 +129,7 @@ class Api extends React.Component {
 
         for (let [key, value] of dataForm.entries()) { 
             if (value && value !== ''){
-                data[key] = value.replace(/\s/g, '');
+                data[key] = value.trim()
             }
         }
 
